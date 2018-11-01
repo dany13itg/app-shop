@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\product;
+
 
 class TestController extends Controller
 {
@@ -15,6 +17,9 @@ class TestController extends Controller
    	return "El valor de la suma es $c";
    }*/
    public function welcome(){
-   	return view('welcome');
+
+      $products= product::all();
+
+   	return view('welcome')->with(compact('products'));
    }
 }
